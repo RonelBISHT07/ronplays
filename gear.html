@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>RONPLAYS | Premium Gear Catalog</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Geist', sans-serif;
+      background-color: #f9f9fb;
+    }
+    .product-card:hover .product-overlay {
+      opacity: 1;
+    }
+    .product-overlay {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    .sticky-filter {
+      position: sticky;
+      top: 72px; /* Sits below the sticky main navbar */
+      z-index: 40;
+      backdrop-filter: blur(8px);
+      background-color: rgba(249, 249, 251, 0.8);
+    }
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .nav-link-active {
+      position: relative;
+      color: #000000 !important;
+      font-weight: 700;
+    }
+    .nav-link-active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+      transform: scaleX(1);
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#ffffff",
+            "on-background": "#1a1c1d",
+            "tertiary-container": "#1a1c1c",
+            "tertiary": "#000000",
+            "background": "#f9f9fb",
+            "on-surface-variant": "#4c4546",
+            "inverse-primary": "#c6c6c6",
+            "on-surface": "#1a1c1d",
+            "primary-fixed-dim": "#c6c6c6",
+            "tertiary-fixed": "#e2e2e2",
+            "outline": "#7e7576",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f0f0f2",
+            "on-tertiary-fixed": "#1a1c1c",
+            "primary": "#000000",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#0266ff",
+            "surface-container-high": "#e8e8ea",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#848484",
+            "surface-variant": "#e2e2e4",
+            "surface-bright": "#f9f9fb",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#5e5e5e",
+            "surface-dim": "#d9dadc",
+            "on-error": "#ffffff",
+            "surface": "#f9f9fb",
+            "outline-variant": "#cfc4c5",
+            "error": "#ba1a1a",
+            "primary-container": "#1b1b1b",
+            "secondary-fixed-dim": "#b3c5ff",
+            "inverse-surface": "#2f3132",
+            "primary-fixed": "#e2e2e2",
+            "on-secondary-fixed-variant": "#003fa4",
+            "surface-container-low": "#f3f3f5",
+            "on-secondary-container": "#f9f7ff",
+            "surface-container-highest": "#e2e2e4",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed": "#001849",
+            "on-tertiary-fixed-variant": "#454747",
+            "on-tertiary-container": "#838484",
+            "secondary-fixed": "#dae1ff",
+            "on-primary-fixed-variant": "#474747",
+            "on-primary-fixed": "#1b1b1b",
+            "secondary": "#0050cc",
+            "surface-container": "#eeeef0"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "section-gap": "120px",
+            "gutter": "24px",
+            "margin-mobile": "20px",
+            "unit": "4px",
+            "margin-desktop": "64px"
+          },
+          "fontFamily": {
+            "body-md": ["Geist"],
+            "body-lg": ["Geist"],
+            "headline-lg-mobile": ["Geist"],
+            "body-md-normal": ["Geist"],
+            "headline-md": ["Geist"],
+            "headline-lg": ["Geist"],
+            "label-caps": ["Geist"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary selection:text-white">
+  <!-- Top Navigation Bar -->
+  <header class="bg-surface-container-lowest/80 backdrop-blur-3xl docked full-width top-0 sticky z-50 border-b border-surface-variant transition-all duration-300">
+    <nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-[1440px] mx-auto">
+      <div class="flex items-center gap-12">
+        <a class="font-headline-md text-[32px] tracking-tighter font-black text-primary cursor-pointer active:scale-95 transition-transform" href="index.html">RONPLAYS</a>
+        <div class="hidden md:flex gap-8 items-center">
+          <a class="nav-link text-on-surface-variant hover:text-primary" href="index.html">HOME</a>
+          <a class="nav-link nav-link-active" href="gear.html">GEAR</a>
+          <a class="nav-link text-on-surface-variant hover:text-primary" href="reviews.html">REVIEWS</a>
+          <a class="nav-link text-on-surface-variant hover:text-primary" href="about.html">ABOUT</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-surface-variant/50">
+          <span class="material-symbols-outlined text-[20px] text-on-surface-variant">search</span>
+          <input class="bg-transparent border-none focus:ring-0 text-body-md px-2 w-48" placeholder="Search gear..." type="text"/>
+        </div>
+        <div class="flex gap-4">
+          <button class="relative p-2 text-primary cursor-pointer active:scale-95 transition-transform">
+            <span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+            <span class="absolute top-0 right-0 size-4 bg-secondary text-white text-[10px] flex items-center justify-center rounded-full">2</span>
+          </button>
+          <button class="hover:opacity-70 transition-opacity duration-300 cursor-pointer active:scale-95 transition-transform">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+          </button>
+          <!-- Hamburger Menu Button (Mobile Only) -->
+          <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none transition-transform hover:scale-105 active:scale-95">
+            <span id="mobile-menu-icon" class="material-symbols-outlined text-[28px]">menu</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-drawer" class="fixed inset-0 bg-background/98 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 px-6 pt-24">
+      <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="font-label-caps text-[20px] tracking-widest text-primary font-bold" href="gear.html">Gear</a>
+      <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="reviews.html">Reviews</a>
+      <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+    </div>
+  </header>
+
+  <main class="max-w-[1440px] mx-auto px-margin-desktop py-12">
+    <!-- Breadcrumbs & Title -->
+    <div class="flex flex-col gap-6 mb-8">
+      <div class="flex items-center gap-2 text-outline text-xs font-bold uppercase tracking-widest">
+        <a class="hover:text-primary transition-colors" href="index.html">Home</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span class="text-primary">Gear Catalog</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <h1 class="text-primary text-5xl md:text-7xl font-black leading-none tracking-tight">PREMIUM <br/><span class="text-outline-variant">GEAR CATALOG</span></h1>
+          <p class="text-on-surface-variant text-lg mt-4 max-w-lg">Elevated engineering meets bespoke craftsmanship. Explore our curated selection of high-performance gaming hardware.</p>
+        </div>
+        <div class="flex gap-4">
+          <button class="bg-primary text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-neutral-800 transition-all">
+            <span class="material-symbols-outlined" data-icon="tune">tune</span>
+            Compare All
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="sticky-filter border-y border-surface-variant py-4 flex items-center justify-between overflow-x-auto mb-12">
+      <div class="flex gap-3 shrink-0">
+        <button class="px-5 py-2 rounded-full bg-primary text-white text-sm font-bold tracking-tight">All Gear</button>
+        <button class="px-5 py-2 rounded-full border border-surface-variant text-primary text-sm font-bold tracking-tight hover:bg-surface-container transition-colors">Controllers</button>
+        <button class="px-5 py-2 rounded-full border border-surface-variant text-primary text-sm font-bold tracking-tight hover:bg-surface-container transition-colors">Charging Stations</button>
+        <button class="px-5 py-2 rounded-full border border-surface-variant text-primary text-sm font-bold tracking-tight hover:bg-surface-container transition-colors">Custom Shells</button>
+        <button class="px-5 py-2 rounded-full border border-surface-variant text-primary text-sm font-bold tracking-tight hover:bg-surface-container transition-colors">Audio</button>
+      </div>
+      <div class="hidden md:flex items-center gap-4 text-sm font-bold text-outline">
+        <span>Sort by:</span>
+        <button class="flex items-center gap-1 text-primary">
+          Featured
+          <span class="material-symbols-outlined text-sm">expand_more</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8 mb-24">
+      <!-- Product 1 -->
+      <div class="product-card group flex flex-col gap-5 cursor-pointer">
+        <div class="relative aspect-[4/5] bg-surface-container overflow-hidden rounded-xl">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Apex Pro V3 Controller" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDp7LNsJIUjQPjKo_fMtmNBnfnCT3t8aAYK5Iv570Cnj8IfDgBdXkGoOs8pRna1gnSUL_5iOABLR9F3yz0zq3cVmXDOuoto9XWM8bSbDBs0dILwig-Q2JUv_xOuSiBsE_VJYTgFJ2A1PrYegM4gDr02NNTdeodw-lBjMtrZYt-EG7KzUAfdBU8JyWPREiVGZwYH-_hG4BnmZWiAA2wxDEF8QRBMRBeeivboYqcieMfD_zObxn9IQLaJ107m3Xdge48ogFfUbWQWT98");'></div>
+          <div class="product-overlay absolute inset-0 bg-primary/10 flex items-end p-6 backdrop-blur-[2px]">
+            <button class="w-full bg-white text-primary py-4 rounded-lg font-black uppercase tracking-widest text-sm shadow-xl hover:bg-primary hover:text-white transition-all">Quick Add</button>
+          </div>
+          <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-[10px] font-black tracking-widest text-primary uppercase shadow-sm">New Arrival</div>
+        </div>
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-primary text-xl font-bold tracking-tight">Apex Pro V3 Controller</h3>
+            <p class="text-outline text-sm font-medium">Tournament Grade • Obsidian Black</p>
+          </div>
+          <p class="text-primary text-xl font-black">$249.00</p>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card group flex flex-col gap-5 cursor-pointer">
+        <div class="relative aspect-[4/5] bg-surface-container overflow-hidden rounded-xl">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Crest Charging Hub" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNcaelbCHJ07T7KdG9brLTir1_kNRAuqj2zP65ErlP5CGZCewjWkIa14vLhgtMD3G6MYNAqGX_JbzFFWg1sjFgROy7LHKIqKfmBD-PTrGCppeIv7JprXYvLrQ4lgr_e5dw0jWgywRCuLxwiULL640n7wTablGf9n1nVtDcM3Jca6EbDb0et3I7ucNKLFf9HMp4iU-DxYD8rPt0_Dd7hU1ENxpbL6zU5nMF4cFCtjPdP3QN8i3dqVM94nILmaCJ0EQsxY0s8UlBZcY");'></div>
+          <div class="product-overlay absolute inset-0 bg-primary/10 flex items-end p-6 backdrop-blur-[2px]">
+            <button class="w-full bg-white text-primary py-4 rounded-lg font-black uppercase tracking-widest text-sm shadow-xl hover:bg-primary hover:text-white transition-all">Quick Add</button>
+          </div>
+        </div>
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-primary text-xl font-bold tracking-tight">Crest Charging Hub</h3>
+            <p class="text-outline text-sm font-medium">Dual-Charge • Satin Ceramic</p>
+          </div>
+          <p class="text-primary text-xl font-black">$129.00</p>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card group flex flex-col gap-5 cursor-pointer">
+        <div class="relative aspect-[4/5] bg-surface-container overflow-hidden rounded-xl">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Spectrum Carbon Shell" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbfsbIn8UGdMzINBYfh3LroNvT6rc1b4CeqwGhlu2E9Djv77t6uKgUWjYDgG1BN4hRYEGbVzjObrIb0goQYQnZNj4rbN3IejvJO9lEcTlesg1y-eJfMwG_CSiwlew19ORBEvykAIFc9az_rM-qmj1YnhXaurrOIkjHSO17c01crvqshqhN_YRfsDHI4zuMtodoOm3jvdF7Kngh_dUDVHKT3flI9-aqbAAyjKd4CZri9MK13uylYg3XWSWF8JZdpG7e9YXrrB2MxSM");'></div>
+          <div class="product-overlay absolute inset-0 bg-primary/10 flex items-end p-6 backdrop-blur-[2px]">
+            <button class="w-full bg-white text-primary py-4 rounded-lg font-black uppercase tracking-widest text-sm shadow-xl hover:bg-primary hover:text-white transition-all">Quick Add</button>
+          </div>
+          <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase shadow-sm">Limited Edition</div>
+        </div>
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-primary text-xl font-bold tracking-tight">Spectrum Carbon Shell</h3>
+            <p class="text-outline text-sm font-medium">Bespoke Kit • Iridescent</p>
+          </div>
+          <p class="text-primary text-xl font-black">$85.00</p>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card group flex flex-col gap-5 cursor-pointer">
+        <div class="relative aspect-[4/5] bg-surface-container overflow-hidden rounded-xl">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Echo ANC Wireless headphones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnVdIpoXze20G-h9v316OMHPeSa_u-7A2JtQ7hZ64AhdDedz_TuZUyq1hVCd1YklGFl8eRA9USgDleIGL61zrk-XQpUBj65eLsh4yVgt0GbM2d4u_W5ln-0G7NSdHvefeXJl8V5d3v3dHUZrRw2nX47yuxixq_x1Ij0CHwih_Pficd-Tl-rdAhPKc1HDsRfWjyKfmB2Wt-1L5TKLBvwkrLmMJrKguyHs006Jw-YQzB7qDFsXuBxQsX5T22kYG7Egq927vvmL8zggw");'></div>
+          <div class="product-overlay absolute inset-0 bg-primary/10 flex items-end p-6 backdrop-blur-[2px]">
+            <button class="w-full bg-white text-primary py-4 rounded-lg font-black uppercase tracking-widest text-sm shadow-xl hover:bg-primary hover:text-white transition-all">Quick Add</button>
+          </div>
+        </div>
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-primary text-xl font-bold tracking-tight">Echo ANC Wireless</h3>
+            <p class="text-outline text-sm font-medium">Spatial Audio • Glacier White</p>
+          </div>
+          <p class="text-primary text-xl font-black">$329.00</p>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card group flex flex-col gap-5 cursor-pointer">
+        <div class="relative aspect-[4/5] bg-surface-container overflow-hidden rounded-xl">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Titan Thumbstick Set" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAS27BC4kU0u51ovdgJYA1nqnAKApEtdGjYCqL3FTfX6scYJ0vEEiGviiJqmJIGOlxItOoFErSRoQ8VTwUMCe-FFVVmUcOH5ErGXymTB83JUjNaF1OcLdILqqT3-Bj1iuArfkmmLRTpw_cnlmGYfxaDdU0mu6nH0dyrjm9MydTbQCoX2OPL6bboNBXuS2F3pzkBdOZsvseEFPu22PRUOsr8o4ejGKZcgSYkcXs21PsE5HuDNFU4YOruonniUSeDEmOQ_kCcvIzBd0");'></div>
+          <div class="product-overlay absolute inset-0 bg-primary/10 flex items-end p-6 backdrop-blur-[2px]">
+            <button class="w-full bg-white text-primary py-4 rounded-lg font-black uppercase tracking-widest text-sm shadow-xl hover:bg-primary hover:text-white transition-all">Quick Add</button>
+          </div>
+        </div>
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-primary text-xl font-bold tracking-tight">Titan Thumbstick Set</h3>
+            <p class="text-outline text-sm font-medium">Billet Aluminum • Raw Silver</p>
+          </div>
+          <p class="text-primary text-xl font-black">$45.00</p>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card group flex flex-col gap-5 cursor-pointer">
+        <div class="relative aspect-[4/5] bg-surface-container overflow-hidden rounded-xl">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Ghost TKL Mechanical keyboard" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACRxLCG6zBdKj5dmeEjRIw5Rz5RRBNXvorOBPfhF97lvCIPXjSkDxYmCapfJCOyxzT3K33_FJjK5vdCMpjDX1QzBX_nqNAh0-_NfK8PQIqHQ5Qn7I-rCc85kdmrnotjKO_GP0pXIeVJNircuSvK4PTz_CwoXJpxlttEacwYQMyHswf4L_Xlgfftg_e-2M3db9lB_RWOg7nYWabdSKfqAL3grTlxWERNtjkH68RqAREoG4Nld8gvXW2-nXNRwgMWDYN8lx6NZMgoVI");'></div>
+          <div class="product-overlay absolute inset-0 bg-primary/10 flex items-end p-6 backdrop-blur-[2px]">
+            <button class="w-full bg-white text-primary py-4 rounded-lg font-black uppercase tracking-widest text-sm shadow-xl hover:bg-primary hover:text-white transition-all">Quick Add</button>
+          </div>
+        </div>
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-primary text-xl font-bold tracking-tight">Ghost TKL Mechanical</h3>
+            <p class="text-outline text-sm font-medium">Linear Switches • Arctic Silver</p>
+          </div>
+          <p class="text-primary text-xl font-black">$210.00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="p-8 md:p-16 bg-primary rounded-3xl text-white relative overflow-hidden mb-12">
+      <div class="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto gap-6">
+        <h2 class="text-3xl md:text-5xl font-black leading-tight tracking-tight">NEVER MISS <br/>A DROP</h2>
+        <p class="text-neutral-400 text-lg">Join our priority list for early access to limited edition drops, custom shells, and member-only pricing.</p>
+        <div class="flex flex-col sm:flex-row w-full gap-4 mt-4">
+          <input class="flex-1 bg-white/10 border border-white/20 rounded-full px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-white/50" placeholder="Enter your email" type="email"/>
+          <button class="bg-white text-primary px-10 py-4 rounded-full font-black uppercase tracking-widest text-sm hover:bg-neutral-200 transition-colors">Join Now</button>
+        </div>
+      </div>
+      <!-- Decorative background element -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] aspect-square border border-white/5 rounded-full pointer-events-none"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square border border-white/10 rounded-full pointer-events-none"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-surface-variant px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-start gap-10 max-w-[1440px] mx-auto w-full">
+    <div class="flex flex-col gap-6">
+      <div class="flex items-center gap-4 text-primary">
+        <h2 class="text-primary text-xl font-black leading-tight tracking-[-0.015em]">RONPLAYS</h2>
+      </div>
+      <p class="text-outline max-w-xs text-sm">Defining the next generation of gaming aesthetics through precision engineering and custom design.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+      <div class="flex flex-col gap-4">
+        <h4 class="text-primary text-sm font-black uppercase tracking-widest">Shop</h4>
+        <nav class="flex flex-col gap-2 text-sm text-outline">
+          <a class="hover:text-primary transition-colors" href="gear.html">All Gear</a>
+          <a class="hover:text-primary transition-colors" href="#">Controllers</a>
+          <a class="hover:text-primary transition-colors" href="#">Custom Shells</a>
+          <a class="hover:text-primary transition-colors" href="#">Compare</a>
+        </nav>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h4 class="text-primary text-sm font-black uppercase tracking-widest">Support</h4>
+        <nav class="flex flex-col gap-2 text-sm text-outline">
+          <a class="hover:text-primary transition-colors" href="#">Shipping</a>
+          <a class="hover:text-primary transition-colors" href="#">Warranty</a>
+          <a class="hover:text-primary transition-colors" href="#">Tutorials</a>
+          <a class="hover:text-primary transition-colors" href="#">Contact</a>
+        </nav>
+      </div>
+      <div class="flex flex-col gap-4 col-span-2 md:col-span-1">
+        <h4 class="text-primary text-sm font-black uppercase tracking-widest">Company</h4>
+        <nav class="flex flex-col gap-2 text-sm text-outline">
+          <a class="hover:text-primary transition-colors" href="about.html">About</a>
+          <a class="hover:text-primary transition-colors" href="#">Careers</a>
+          <a class="hover:text-primary transition-colors" href="#">Press</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  
+  <div class="px-margin-desktop pb-10 text-center md:text-left max-w-[1440px] mx-auto w-full">
+    <p class="text-outline-variant text-[10px] font-bold uppercase tracking-widest">© 2024 RONPLAYS GLOBAL. ALL RIGHTS RESERVED.</p>
+  </div>
+
+  <script>
+    // Micro-interaction: Filter button toggle
+    const filterButtons = document.querySelectorAll('.sticky-filter button');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-white');
+          b.classList.add('border', 'border-surface-variant', 'text-primary');
+        });
+        btn.classList.add('bg-primary', 'text-white');
+        btn.classList.remove('border', 'border-surface-variant', 'text-primary');
+      });
+    });
+
+    // Floating Header Effect on Scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (header) {
+        if (window.scrollY > 20) {
+          header.classList.add('shadow-sm', 'py-2');
+          header.classList.remove('py-4');
+        } else {
+          header.classList.remove('shadow-sm', 'py-2');
+          header.classList.add('py-4');
+        }
+      }
+
+      const filterBar = document.querySelector('.sticky-filter');
+      if (filterBar) {
+        if (window.scrollY > 200) {
+          filterBar.classList.add('shadow-md');
+        } else {
+          filterBar.classList.remove('shadow-md');
+        }
+      }
+    });
+
+    // Mobile menu drawer toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const menuIcon = document.getElementById('mobile-menu-icon');
+    
+    if (menuBtn && drawer && menuIcon) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = !drawer.classList.contains('translate-x-full');
+        if (isOpen) {
+          drawer.classList.add('translate-x-full');
+          menuIcon.textContent = 'menu';
+        } else {
+          drawer.classList.remove('translate-x-full');
+          menuIcon.textContent = 'close';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

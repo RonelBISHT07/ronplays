@@ -1,0 +1,424 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#001849",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "background": "#f9f9fb",
+                        "surface-container": "#eeeef0",
+                        "surface-dim": "#d9dadc",
+                        "surface-variant": "#e2e2e4",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1b1b1b",
+                        "on-secondary-fixed-variant": "#003fa4",
+                        "primary": "#000000",
+                        "tertiary": "#000000",
+                        "on-surface": "#1a1c1d",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "secondary-fixed": "#dae1ff",
+                        "on-background": "#1a1c1d",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-bright": "#f9f9fb",
+                        "tertiary-container": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e4",
+                        "primary-fixed": "#e2e2e2",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-low": "#f3f3f5",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#cfc4c5",
+                        "secondary-container": "#0266ff",
+                        "on-primary-container": "#848484",
+                        "on-secondary-container": "#f9f7ff",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#c6c6c6",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-surface-variant": "#4c4546",
+                        "inverse-surface": "#2f3132",
+                        "on-tertiary-container": "#838484",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#1b1b1b",
+                        "outline": "#7e7576",
+                        "secondary-fixed-dim": "#b3c5ff",
+                        "surface-tint": "#5e5e5e",
+                        "surface": "#f9f9fb",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "error": "#ba1a1a",
+                        "secondary": "#0050cc",
+                        "inverse-on-surface": "#f0f0f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "section-gap": "120px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["15px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+        }
+        .hardware-edge {
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 1);
+        }
+        .custom-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .nav-link-active {
+            position: relative;
+            color: #000000 !important;
+            font-weight: 700;
+        }
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+            transform: scaleX(1);
+        }
+        /* Scroll Animation Section Styles */
+        .scroll-section {
+            position: relative;
+            height: 400vh; /* Giving scroll room */
+            background-color: #030305;
+            width: 100%;
+        }
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .canvas-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            pointer-events: none;
+        }
+        #animation-canvas {
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        .glow-backdrop {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.25) 0%, rgba(0,0,0,0) 70%);
+            filter: blur(60px);
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background/80 glass-nav border-b border-surface-variant/20 transition-all duration-300">
+  <div class="flex justify-between items-center max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-6">
+    <a href="index.html" class="font-headline-md text-[32px] font-black tracking-tighter text-primary cursor-pointer active:scale-95 transition-transform">RONplays</a>
+    
+    <div class="hidden md:flex items-center gap-10 font-body-md text-body-md font-medium tracking-tight">
+      <a class="nav-link nav-link-active" href="index.html">Home</a>
+      <a class="nav-link text-on-surface-variant hover:text-primary" href="gear.html">Gear</a>
+      <a class="nav-link text-on-surface-variant hover:text-primary" href="reviews.html">Reviews</a>
+      <a class="nav-link text-on-surface-variant hover:text-primary" href="about.html">About</a>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <button class="material-symbols-outlined text-primary hover:scale-110 active:scale-95 transition-transform duration-200">shopping_bag</button>
+      <button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-caps text-label-caps hover:bg-neutral-800 transition-all active:scale-95">Shop Now</button>
+      <!-- Hamburger Menu Button (Mobile Only) -->
+      <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none transition-transform hover:scale-105 active:scale-95">
+        <span id="mobile-menu-icon" class="material-symbols-outlined text-[28px]">menu</span>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Drawer Overlay Menu -->
+  <div id="mobile-drawer" class="fixed inset-0 bg-background/98 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 px-6 pt-24">
+    <a class="font-label-caps text-[20px] tracking-widest text-primary font-bold" href="index.html">Home</a>
+    <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="gear.html">Gear</a>
+    <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="reviews.html">Reviews</a>
+    <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+  </div>
+</header>
+<main class="pt-24">
+<!-- Interactive Scroll Animation Section -->
+<section id="interactive-scroll" class="scroll-section">
+  <!-- Sticky container for the Canvas -->
+  <div class="sticky-container">
+    <!-- Hero Text Overlay (Centered vertically & horizontally, larger font) -->
+    <div id="hero-text-overlay" class="absolute inset-0 flex flex-col items-center justify-center text-center z-30 pointer-events-none px-6 transition-opacity duration-300">
+      <h1 class="text-white font-headline-lg text-headline-lg-mobile md:text-[110px] leading-none mb-6 uppercase tracking-tighter drop-shadow-lg">RONplays</h1>
+      <p class="text-neutral-300 font-body-lg text-body-lg md:text-[24px] drop-shadow-md mb-8">Built for the clutch moments.</p>
+      <div class="flex gap-4 pointer-events-auto">
+        <a href="gear.html" class="bg-white text-black font-label-caps text-label-caps px-6 py-3 rounded-full hover:bg-neutral-200 transition-colors active:scale-95 duration-200 shadow-lg shadow-black/20">Explore Gear</a>
+        <a href="about.html" class="border border-white/30 text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:bg-white/10 hover:border-white/60 transition-colors active:scale-95 duration-200">Learn More</a>
+      </div>
+    </div>
+    <div class="canvas-wrapper">
+      <canvas id="animation-canvas"></canvas>
+      <div class="glow-backdrop"></div>
+    </div>
+  </div>
+</section>
+<!-- Value Prop Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter scroll-reveal visible">
+<!-- Ergonomic Design -->
+<div class="p-8 bg-white hardware-edge rounded-xl custom-shadow flex flex-col items-start transition-transform hover:-translate-y-2 duration-300">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg mb-6">
+<span class="material-symbols-outlined text-primary text-[28px]">architecture</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Ergonomic Design</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">An evolved, two-tone design that combines an iconic layout with enhanced sticks and a reimagined light bar.</p>
+</div>
+<!-- Haptic Feedback -->
+<div class="p-8 bg-white hardware-edge rounded-xl custom-shadow flex flex-col items-start transition-transform hover:-translate-y-2 duration-300">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg mb-6">
+<span class="material-symbols-outlined text-primary text-[28px]" data-weight="fill">vibration</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Haptic Feedback</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Feel physically responsive feedback to your in-game actions with dual actuators which replace traditional rumble motors.</p>
+</div>
+<!-- Unmatched Precision -->
+<div class="p-8 bg-white hardware-edge rounded-xl custom-shadow flex flex-col items-start transition-transform hover:-translate-y-2 duration-300">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg mb-6">
+<span class="material-symbols-outlined text-primary text-[28px]">target</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Unmatched Precision</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Adaptive triggers provide varying levels of force and tension as you interact with your in-game gear and environments.</p>
+</div>
+</div>
+</section>
+<!-- Product Detail (Bento Style) -->
+<section class="py-section-gap bg-surface-container-low overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop scroll-reveal visible">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Left Large Card -->
+<div class="md:col-span-7 bg-white rounded-2xl overflow-hidden hardware-edge custom-shadow group">
+<div class="flex flex-col h-full">
+<div class="p-12 pb-0">
+<span class="font-label-caps text-label-caps text-secondary-fixed-dim bg-secondary px-3 py-1 rounded-full mb-4 inline-block">Iconic Aesthetic</span>
+<h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-primary mb-4">Monochromatic Mastery</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">The stark contrast of obsidian black and arctic white creates a silhouette that defines the current generation of hardware.</p>
+</div>
+<div class="mt-auto relative h-[400px] bg-neutral-100">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110" data-alt="A macro close-up photograph showcasing the sophisticated texture and clean lines of a modern gaming controller. The focus is sharp on the matte white surface meeting the smooth black grips, highlighting the premium industrial design. Soft, neutral studio lighting creates elegant gradients and subtle highlights on the hardware." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBrPDcOBiN-dYaQOMGh71SenjjJw6f-b1OfUMbltZJJ1KfOQa3nBH8qu16UXCql1OVyLyGzF_b64vTM9kFHW2xzxDrB81tmTbGYQaHhV4RyO92dqmPMEfXT6Tj4k5Ccu8UGs5-lV31lPjcqxF_49zUjWcyLxZ1pQC9IHV6rxsfHE_q7PHtiAhNbP5cmEJjtdVwAYSQvs2GH2j3T7fxeHQlF1DvWd6U6purBJioJHq7O9t8BaqQw-ZSwgV9vg0CO1eAnRRtIlgvBHfE&quot;);"></div>
+</div>
+</div>
+</div>
+<!-- Right Stacked Cards -->
+<div class="md:col-span-5 flex flex-col gap-8">
+<div class="bg-white rounded-2xl p-10 hardware-edge custom-shadow flex-1 group">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Tactile Response</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Signature symbols reimagined with a minimalist finish.</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-3xl">touch_app</span>
+</div>
+<div class="aspect-video bg-neutral-50 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-contrast, artistic top-down view of gaming controller buttons. The legendary square, triangle, circle, and cross symbols are rendered in a clean, colorless relief on transparent plastic. The scene is shot with high-key lighting, emphasizing the purity and professional craft of the input mechanisms. The atmosphere is clinical and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACXRLONvnzXzqsfCb3JrjiiGh-UfQPtX6EPDdFWck3otwFan7pElv47ul5S_xlhPsm52bBl53McoyiZ2rec4nWk52bsvf8wwMmAKFlmfjVepK2ho672DWUQSvOyrDnEepDHOfThRczChMgJLROiCZV6owrsfZjxBO6j-6yYr3BAHM4mqYzFE_CFennzhW1B6m1IRSGmXGohxda4U3MMvMT8dpce5chsGL1NSxy-8ivJpX-Z00lBDbjxItT49mk39x38zgqknbHP8I">
+</div>
+</div>
+<div class="bg-primary text-on-primary rounded-2xl p-10 flex flex-col justify-center relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md mb-4 text-white">Wireless Performance</h4>
+<p class="font-body-md text-body-md text-neutral-400 mb-6">Ultra-low latency connection for competitive-grade gaming without the cables.</p>
+<a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-white group-hover:gap-4 transition-all" href="#">
+                                    Read technical specs
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="absolute -right-20 -bottom-20 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[300px]" style="font-variation-settings: &quot;FILL&quot; 1;">wifi</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop text-center">
+<div class="max-w-2xl mx-auto py-24 rounded-3xl bg-white hardware-edge custom-shadow border border-surface-variant/20 relative overflow-hidden scroll-reveal visible">
+<!-- Background Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="relative z-10">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">Put your gameplay into overdrive.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Join thousands of elite players choosing RONplays for their professional setup.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center px-8">
+<button class="w-full sm:w-auto bg-primary text-on-primary px-12 py-5 rounded-full font-label-caps text-label-caps text-[14px] hover:bg-neutral-800 transition-all shadow-xl shadow-black/10">Shop the Gear</button>
+<button class="w-full sm:w-auto text-primary px-12 py-5 font-label-caps text-label-caps hover:bg-surface-variant transition-all rounded-full">Explore Catalog</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-lowest border-t border-surface-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto gap-8 md:gap-0">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-headline-md text-headline-md font-black text-primary mb-4">RONplays</div>
+<p class="text-on-surface-variant font-label-caps text-label-caps text-[10px] opacity-60">© 2024 RONplays. ENGINEERED FOR PRECISION.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 font-label-caps text-label-caps tracking-widest text-on-surface-variant">
+<a class="hover:text-secondary transition-all" href="#">Privacy Policy</a>
+<a class="hover:text-secondary transition-all" href="#">Terms of Service</a>
+<a class="hover:text-secondary transition-all" href="#">Shipping</a>
+<a class="hover:text-secondary transition-all" href="#">Contact</a>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary transition-colors">share</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary transition-colors">public</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll reveal interaction
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal, section > div').forEach(el => {
+            el.classList.add('scroll-reveal');
+            observer.observe(el);
+        });
+
+        // Sticky Nav logic
+        let lastScroll = 0;
+        const nav = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (nav) {
+                if (currentScroll > 50) {
+                    nav.classList.add('py-4', 'shadow-sm');
+                    nav.classList.remove('py-6');
+                } else {
+                    nav.classList.add('py-6');
+                    nav.classList.remove('py-4', 'shadow-sm');
+                }
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Mobile menu drawer toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const drawer = document.getElementById('mobile-drawer');
+        const menuIcon = document.getElementById('mobile-menu-icon');
+        
+        if (menuBtn && drawer && menuIcon) {
+            menuBtn.addEventListener('click', () => {
+                const isOpen = !drawer.classList.contains('translate-x-full');
+                if (isOpen) {
+                    drawer.classList.add('translate-x-full');
+                    menuIcon.textContent = 'menu';
+                } else {
+                    drawer.classList.remove('translate-x-full');
+                    menuIcon.textContent = 'close';
+                }
+            });
+        }
+    </script>
+    <script type="module" src="app.js"></script>
+</body></html>

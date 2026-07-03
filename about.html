@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>RONPLAYS | Precision Engineering About</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Geist', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .hover-lift:hover { transform: translateY(-4px); }
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .nav-link-active {
+      position: relative;
+      color: #000000 !important;
+      font-weight: 700;
+    }
+    .nav-link-active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+      transform: scaleX(1);
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#1a1c1d",
+            "secondary-fixed-dim": "#b3c5ff",
+            "outline-variant": "#cfc4c5",
+            "surface-container-high": "#e8e8ea",
+            "surface-container": "#eeeef0",
+            "on-secondary-fixed": "#001849",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f0f0f2",
+            "error": "#ba1a1a",
+            "tertiary-container": "#1a1c1c",
+            "on-secondary-container": "#f9f7ff",
+            "on-primary-fixed-variant": "#474747",
+            "tertiary-fixed": "#e2e2e2",
+            "primary": "#000000",
+            "background": "#f9f9fb",
+            "on-error": "#ffffff",
+            "outline": "#7e7576",
+            "surface-bright": "#f9f9fb",
+            "inverse-surface": "#2f3132",
+            "secondary": "#0050cc",
+            "on-error-container": "#93000a",
+            "surface-variant": "#e2e2e4",
+            "on-secondary-fixed-variant": "#003fa4",
+            "primary-fixed-dim": "#c6c6c6",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#dae1ff",
+            "inverse-primary": "#c6c6c6",
+            "surface": "#f9f9fb",
+            "on-primary-fixed": "#1b1b1b",
+            "on-background": "#1a1c1d",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#5e5e5e",
+            "surface-container-low": "#f3f3f5",
+            "tertiary": "#000000",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#1b1b1b",
+            "error-container": "#ffdad6",
+            "secondary-container": "#0266ff",
+            "on-surface-variant": "#4c4546",
+            "on-tertiary-fixed": "#1a1c1c",
+            "primary-fixed": "#e2e2e2",
+            "on-primary-container": "#848484",
+            "surface-dim": "#d9dadc",
+            "surface-container-highest": "#e2e2e4",
+            "on-tertiary-fixed-variant": "#454747",
+            "on-tertiary-container": "#838484"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "section-gap": "120px",
+            "gutter": "24px",
+            "margin-mobile": "20px",
+            "unit": "4px",
+            "margin-desktop": "64px"
+          },
+          "fontFamily": {
+            "label-caps": ["Geist"],
+            "body-md": ["Geist"],
+            "headline-lg": ["Geist"],
+            "body-lg": ["Geist"],
+            "headline-md": ["Geist"],
+            "headline-lg-mobile": ["Geist"]
+          },
+          "fontSize": {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+            "body-md": ["15px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary selection:text-white">
+  <!-- Top Navigation Bar -->
+  <header class="bg-surface-container-lowest/80 backdrop-blur-3xl docked full-width top-0 sticky z-50 border-b border-surface-variant transition-all duration-300">
+    <nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-[1440px] mx-auto">
+      <div class="flex items-center gap-12">
+        <a class="font-headline-md text-[32px] tracking-tighter font-black text-primary cursor-pointer active:scale-95 transition-transform" href="index.html">RONPLAYS</a>
+        <div class="hidden md:flex gap-8 items-center">
+          <a class="nav-link text-on-surface-variant hover:text-primary" href="index.html">HOME</a>
+          <a class="nav-link text-on-surface-variant hover:text-primary" href="gear.html">GEAR</a>
+          <a class="nav-link text-on-surface-variant hover:text-primary" href="reviews.html">REVIEWS</a>
+          <a class="nav-link nav-link-active" href="about.html">ABOUT</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity" data-icon="shopping_bag">shopping_bag</span>
+        <span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity" data-icon="person">person</span>
+        <!-- Hamburger Menu Button (Mobile Only) -->
+        <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none transition-transform hover:scale-105 active:scale-95">
+          <span id="mobile-menu-icon" class="material-symbols-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+    </nav>
+    
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-drawer" class="fixed inset-0 bg-background/98 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 px-6 pt-24">
+      <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="gear.html">Gear</a>
+      <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="reviews.html">Reviews</a>
+      <a class="font-label-caps text-[20px] tracking-widest text-primary font-bold" href="about.html">About</a>
+    </div>
+  </header>
+
+  <main class="max-w-[1440px] mx-auto px-margin-desktop py-12">
+    <!-- Hero Section -->
+    <section class="mb-20">
+      <div class="mb-12 text-center">
+        <span class="text-label-caps text-secondary font-bold uppercase tracking-widest block mb-4">Crafting the Future</span>
+        <h1 class="text-headline-lg-mobile md:text-headline-lg text-primary mb-8 max-w-2xl mx-auto">Engineering Precision</h1>
+        <div class="w-24 h-1 bg-primary mx-auto mb-12"></div>
+      </div>
+      <div class="relative w-full aspect-[21/9] rounded-xl overflow-hidden mb-20">
+        <div class="bg-cover bg-center w-full h-full transform hover:scale-105 transition-transform duration-1000" data-alt="Technical drawings" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAyxNprXivmLXDVOq1sgvgBachXCXWthygkTqkh1Ytpk0Tjo-PhoLtPynLNXvDn06le_TcUb7NrlaGd1EYIxJXiCXJhK6Q099TPxGj0IaCCFFXytz5t2MTqrD8O5ae3sbV4fkr-6bXiC558ifSURM925kxPoSKcHzYEL-0VRKzC0m0u-zmT1bge51b9vpH6dvwryH_EM6Y-PxgzuqN-NEKy_BiquZ8TJQJ7G1zNfm2RevEjBbkAvJtB-vLcUTD0G6bvMMnqFJ8xri4')"></div>
+      </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="mb-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div>
+          <h2 class="text-headline-md text-primary mb-6">Our Philosophy</h2>
+          <p class="text-body-lg text-on-surface-variant leading-relaxed">
+            At RONPLAYS, we believe that true beauty lies in the meticulous details of engineering. We strip away the unnecessary to reveal the raw power of precision design, creating tools that are as functional as they are iconic. Our approach is rooted in the belief that simplicity is the ultimate sophistication, achieved only through obsessive refinement.
+          </p>
+        </div>
+        <div class="space-y-8">
+          <div class="p-8 border border-outline-variant rounded-xl hover-lift bg-white">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">architecture</span>
+              <h3 class="font-bold text-lg">Structural Integrity</h3>
+            </div>
+            <p class="text-body-md text-on-surface-variant">We prioritize longevity and resilience in every line of code and every physical prototype we produce.</p>
+          </div>
+          <div class="p-8 border border-outline-variant rounded-xl hover-lift bg-white">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">speed</span>
+              <h3 class="font-bold text-lg">Optimized Velocity</h3>
+            </div>
+            <p class="text-body-md text-on-surface-variant">Precision shouldn't come at the cost of speed. We engineer systems that accelerate growth without friction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="bg-primary text-on-primary py-24 px-8 rounded-xl mb-32 overflow-hidden relative">
+      <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <span class="material-symbols-outlined text-secondary text-5xl mb-8" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+        <h2 class="text-headline-md md:text-headline-lg-mobile font-bold mb-8 italic">"To define the next era of human interaction through the lens of pure engineering excellence."</h2>
+        <p class="text-body-md opacity-80 uppercase tracking-widest font-bold text-neutral-400">The RONPLAYS Mission</p>
+      </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="mb-32">
+      <h2 class="text-headline-md text-primary mb-16 text-center">Our Design Process</h2>
+      <div class="relative">
+        <div class="hidden md:block absolute top-6 left-0 w-full h-[1px] bg-outline-variant"></div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <!-- Step 1 -->
+          <div class="relative group">
+            <div class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center rounded-full mb-6 relative z-10 transition-transform group-hover:scale-110">
+              <span class="font-bold">01</span>
+            </div>
+            <h3 class="text-headline-md mb-4 text-sm font-bold uppercase tracking-tight">Deconstruction</h3>
+            <p class="text-body-md text-on-surface-variant">We break down complex problems into their atomic parts, removing all assumptions.</p>
+            <div class="mt-8 aspect-square overflow-hidden rounded-lg grayscale hover:grayscale-0 transition-all">
+              <img class="w-full h-full object-cover" data-alt="System Deconstruction" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG6lLnwfCRgh1TG1Dbyj8RSHHgkSMWXnkIT-CdVWG3N7oFejMfxpquI03qT7dvzpEV-emdavt6s9yENF30_80RO-8yfycircIRJdNTOFGCrIvyc1QRRc9coqt6wu2SxrlMmXMvRHqsCKCCZBbjoUQcleHX9TEAepO4_0NQptahLuUJewYbznpH81DNVFfHBeTp05Qi_YpirnFYPczcT5G77uK2ILxAcHdlUQrg7GpYkH4V-oi7FgvrvKsKLe79nUkysFAr4VvD_R4"/>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="relative group">
+            <div class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center rounded-full mb-6 relative z-10 transition-transform group-hover:scale-110">
+              <span class="font-bold">02</span>
+            </div>
+            <h3 class="text-headline-md mb-4 text-sm font-bold uppercase tracking-tight">Synthesis</h3>
+            <p class="text-body-md text-on-surface-variant">Core elements are recombined using modern technological frameworks for maximum efficiency.</p>
+            <div class="mt-8 aspect-square overflow-hidden rounded-lg grayscale hover:grayscale-0 transition-all">
+              <img class="w-full h-full object-cover" data-alt="Synthesis fluid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz2-j_-uq1M9sofXUISLYV4wGCgRTTy8rj7EpZh1GnfaxC0OFVm_gJV91OCUYLOYtsZqfC5Amsmzln5vxhIItnx5j8ULPg4SCxpbrBB3J3m3R6NSn0E1c1H_NqzZffUhkdhgkHbj22GtGZLnBIl9DK4u1p0Qa_UriVuo0_qLiJ-geTGqVnJLlw2lGXqJrwOlQuo-Gyr94EW43gMObwqHbh755qWuig3KpBYZ_86ZWkC4VGI9b2wqqA8Bo5VvGF7IkhqlSJFJ0H6B0"/>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="relative group">
+            <div class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center rounded-full mb-6 relative z-10 transition-transform group-hover:scale-110">
+              <span class="font-bold">03</span>
+            </div>
+            <h3 class="text-headline-md mb-4 text-sm font-bold uppercase tracking-tight">Stress Test</h3>
+            <p class="text-body-md text-on-surface-variant">Rigorous simulation and real-world testing ensure the design withstands extreme conditions.</p>
+            <div class="mt-8 aspect-square overflow-hidden rounded-lg grayscale hover:grayscale-0 transition-all">
+              <img class="w-full h-full object-cover" data-alt="Stress test waves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ-uXVwEn6492Go97W7b26utdzxCQeKj1QD6sGO5hPps6ezLjF9D4SYIVA9PQs7THHGMujnlfexVElbgydgtHAycuGfe4Iu3LDaLGvJrOmt8LaYZQrKV-mWKZcobyRyChI1OPpkQG1F4u-I0SPraXDgzd1QgEAm6WNaQpMg5UEWEmPNRedgACSfRYX1ajUA5ODXyJXIUrPTXtv5KpsXZDnwEw3QN2wt5Rf9ykGMIKiH8RS8Z0yrGIcC0cb-bKl5FejeSwhKm43LUA"/>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="relative group">
+            <div class="w-12 h-12 bg-secondary text-on-secondary flex items-center justify-center rounded-full mb-6 relative z-10 transition-transform group-hover:scale-110">
+              <span class="font-bold">04</span>
+            </div>
+            <h3 class="text-headline-md mb-4 text-sm font-bold uppercase tracking-tight">Refinement</h3>
+            <p class="text-body-md text-on-surface-variant">The final polish that distinguishes a RONPLAYS product from standard engineering.</p>
+            <div class="mt-8 aspect-square overflow-hidden rounded-lg grayscale hover:grayscale-0 transition-all">
+              <img class="w-full h-full object-cover" data-alt="Brushed titanium finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLTrD2L2OKC9t9hxn4vefNz_pq7kTbpIdZRb3WGKt9DW0WBHYktnbC-_jDcV3FRWfOPO1evqljIBUdOIb0nkJxeLDfWNYdpEv0vZtZX3O_FPgXWdwKNc9Jalnx6KxIwSZv_7dQTL0vPmhpRlY0IHm1xDCfyw8MVHFmF88ePuqYnUXoFpyAL0fRpVqWwVKoWVdltTyCwoptLZLyddTUPB2M9J8NJdbBhFw29HwUfuFJzNhCRQa479PyO9VA66EZtpiw-5M9utjcMHQ"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="text-center py-20 border-t border-outline-variant">
+      <h2 class="text-headline-md mb-8">Ready to Build the Future?</h2>
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a href="gear.html" class="bg-primary text-on-primary px-10 py-4 rounded-lg font-bold hover:bg-opacity-90 transition-all flex items-center justify-center gap-2">
+          Start a Project <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+        <a href="reviews.html" class="border border-primary text-primary px-10 py-4 rounded-lg font-bold hover:bg-surface-container transition-all">
+          View Our Work
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest border-t border-surface-variant w-full py-16">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter w-full max-w-[1440px] mx-auto">
+      <div class="flex flex-col items-center md:items-start gap-4">
+        <span class="font-headline-md text-headline-md font-black text-primary">RONPLAYS</span>
+        <p class="font-label-caps text-label-caps text-on-surface-variant">© 2024 RONPLAYS PRECISION ENGINEERING. ALL RIGHTS RESERVED.</p>
+      </div>
+      <div class="flex gap-8">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">TERMS</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">WARRANTY</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">SUPPORT</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Floating Header Effect on Scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (header) {
+        if (window.scrollY > 20) {
+          header.classList.add('shadow-sm', 'py-2');
+          header.classList.remove('py-4');
+        } else {
+          header.classList.remove('shadow-sm', 'py-2');
+          header.classList.add('py-4');
+        }
+      }
+    });
+
+    // Mobile menu drawer toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const menuIcon = document.getElementById('mobile-menu-icon');
+    
+    if (menuBtn && drawer && menuIcon) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = !drawer.classList.contains('translate-x-full');
+        if (isOpen) {
+          drawer.classList.add('translate-x-full');
+          menuIcon.textContent = 'menu';
+        } else {
+          drawer.classList.remove('translate-x-full');
+          menuIcon.textContent = 'close';
+        }
+      });
+    }
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+        }
+      });
+    }, observerOptions);
+
+    // Apply animations to sections and images
+    document.querySelectorAll('section h2, section p, .aspect-square, .grid > div').forEach(el => {
+      el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

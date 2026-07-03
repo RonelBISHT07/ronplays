@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>RONPLAYS | Reviews</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Noto+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Geist', 'Be Vietnam Pro', sans-serif;
+      background-color: #f9f9fb;
+    }
+    .hero-gradient {
+      background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 100%);
+    }
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .nav-link-active {
+      position: relative;
+      color: #000000 !important;
+      font-weight: 700;
+    }
+    .nav-link-active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+      transform: scaleX(1);
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#454747",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#1a1c1c",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#f9f9fb",
+            "tertiary": "#000000",
+            "surface-tint": "#5e5e5e",
+            "error": "#ba1a1a",
+            "primary-fixed": "#e2e2e2",
+            "secondary-fixed": "#dae1ff",
+            "on-primary-fixed": "#1b1b1b",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed": "#001849",
+            "on-primary-fixed-variant": "#474747",
+            "surface-bright": "#f9f9fb",
+            "secondary": "#0050cc",
+            "surface-container-highest": "#e2e2e4",
+            "on-primary-container": "#848484",
+            "on-secondary-container": "#f9f7ff",
+            "inverse-primary": "#c6c6c6",
+            "surface-container": "#eeeef0",
+            "on-surface": "#1a1c1d",
+            "primary-fixed-dim": "#c6c6c6",
+            "outline": "#7e7576",
+            "inverse-surface": "#2f3132",
+            "on-background": "#1a1c1d",
+            "tertiary-container": "#1a1c1c",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#4c4546",
+            "surface-dim": "#d9dadc",
+            "surface-container-high": "#e8e8ea",
+            "outline-variant": "#cfc4c5",
+            "primary-container": "#1b1b1b",
+            "on-secondary-fixed-variant": "#003fa4",
+            "tertiary-fixed": "#e2e2e2",
+            "surface-container-low": "#f3f3f5",
+            "surface-variant": "#e2e2e4",
+            "inverse-on-surface": "#f0f0f2",
+            "primary": "#000000",
+            "error-container": "#ffdad6",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#b3c5ff",
+            "background": "#f9f9fb",
+            "secondary-container": "#0266ff",
+            "on-tertiary-container": "#838484",
+            "tertiary-fixed-dim": "#c6c6c7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "section-gap": "120px",
+            "gutter": "24px",
+            "margin-mobile": "20px",
+            "unit": "4px",
+            "margin-desktop": "64px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Geist"],
+            "body-md": ["Geist"],
+            "headline-md": ["Geist"],
+            "label-caps": ["Geist"],
+            "body-lg": ["Geist"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary selection:text-white">
+  <!-- Top Navigation Bar -->
+  <header class="bg-surface-container-lowest/80 backdrop-blur-3xl docked full-width top-0 sticky z-50 border-b border-surface-variant transition-all duration-300">
+    <nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-[1440px] mx-auto">
+      <div class="flex items-center gap-12">
+        <a class="font-headline-md text-[32px] tracking-tighter font-black text-primary cursor-pointer active:scale-95 transition-transform" href="index.html">RONPLAYS</a>
+        <div class="hidden md:flex gap-8 items-center">
+          <a class="nav-link text-on-surface-variant hover:text-primary" href="index.html">HOME</a>
+          <a class="nav-link text-on-surface-variant hover:text-primary" href="gear.html">GEAR</a>
+          <a class="nav-link nav-link-active" href="reviews.html">REVIEWS</a>
+          <a class="nav-link text-on-surface-variant hover:text-primary" href="about.html">ABOUT</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-surface-variant/50">
+          <span class="material-symbols-outlined text-[20px] text-on-surface-variant">search</span>
+          <input class="bg-transparent border-none focus:ring-0 text-body-md px-2 w-48" placeholder="Search reviews..." type="text"/>
+        </div>
+        <div class="flex gap-4">
+          <button class="hover:opacity-70 transition-opacity duration-300 cursor-pointer active:scale-95 transition-transform">
+            <span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+          </button>
+          <button class="hover:opacity-70 transition-opacity duration-300 cursor-pointer active:scale-95 transition-transform">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+          </button>
+          <!-- Hamburger Menu Button (Mobile Only) -->
+          <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none transition-transform hover:scale-105 active:scale-95">
+            <span id="mobile-menu-icon" class="material-symbols-outlined text-[28px]">menu</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-drawer" class="fixed inset-0 bg-background/98 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 px-6 pt-24">
+      <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="gear.html">Gear</a>
+      <a class="font-label-caps text-[20px] tracking-widest text-primary font-bold" href="reviews.html">Reviews</a>
+      <a class="font-label-caps text-[20px] tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+    </div>
+  </header>
+
+  <main class="max-w-[1440px] mx-auto px-margin-desktop py-12">
+    <!-- Hero Section: Featured Review -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-section-gap items-start">
+      <div class="lg:col-span-8 flex flex-col gap-6">
+        <div class="relative overflow-hidden rounded-xl h-[500px] w-full group">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Astral Drift fantasy landscape" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4QnzguxYdVlxWuYrgEsxoAUHp0BXNaIu2PYlPonZ1lYt8u0E0DrakpaLO_Oq76AwJO-5-KQzpj-jNovG9LPazpnNaTA2EAGdlhgiVY4zeMJiTuQGXo7BwQwLQgJp8QQb254O5UDaUeAcsDnwX5UVx1MZO3j8tcCX9g2M-Vego5C-PP0H4dmDslEZwp4tQtdfEqX_LvuAFsTe_4_jnit5ZzEu9XEcYZj_tViLbcglMRpyMB2DvN1otUzBMnR7iFSUIP5EgenRyaVM')"></div>
+          <div class="absolute inset-0 hero-gradient flex flex-col justify-end p-8">
+            <span class="inline-block bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 w-fit">Editor's Choice</span>
+            <h1 class="text-white text-headline-lg mb-4 text-4xl font-black">Astral Drift: A Symphony of Speed and Stars</h1>
+            <p class="text-white/80 text-body-lg max-w-2xl">The most ambitious racing title of the decade doesn't just push the hardware; it redefines the visceral feeling of speed in a digital space.</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-10 items-center border-b border-outline-variant pb-8">
+          <div class="flex flex-col">
+            <span class="text-label-caps text-on-surface-variant mb-1 uppercase">Final Score</span>
+            <div class="flex items-center gap-3">
+              <span class="text-5xl font-black text-primary">9.5</span>
+              <div class="flex gap-0.5 text-secondary">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-label-caps text-on-surface-variant mb-1 uppercase">Reviewer</span>
+            <div class="flex items-center gap-3">
+              <div class="size-8 rounded-full overflow-hidden">
+                <img class="w-full h-full object-cover" data-alt="Marcus Thorne headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHQM7_HDJVEdgEz6wNoJZjFglyPf4aGfmEhxghCT1PdZoJJAcFtNcPg2SGWJuv9JxHuXyNEbbgWagEZyP8U-ayz_zuZH6kKDRE3SVD1zYo_cJQse8Hm7DrADZHWWrbTILcfCwacw36u9yArRr1OnXD1WJ_qTz7jKhHl0AWvm1EW86-TFdZ3qrWawe5NHBPFF4JWgbs5au9ipFs9V0k_kvXv5BZs3ttlfTY1HzTmZXYuQ7GN4PVHHQn74LTBe-5GVUSADfYKKmAYuo"/>
+              </div>
+              <span class="font-bold text-on-surface">Marcus Thorne</span>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-label-caps text-on-surface-variant mb-1 uppercase">Released</span>
+            <span class="font-bold text-on-surface">Oct 24, 2023</span>
+          </div>
+        </div>
+        <!-- Highlight Quote -->
+        <div class="pl-8 border-l-4 border-secondary py-2">
+          <blockquote class="text-2xl font-semibold italic text-on-surface leading-snug">
+            "Rarely does a game manage to combine technical perfection with such a distinct, haunting artistic vision. It’s the new gold standard."
+          </blockquote>
+        </div>
+      </div>
+      
+      <!-- Sidebar: Pros/Cons & Rapid Fire -->
+      <aside class="lg:col-span-4 flex flex-col gap-8">
+        <div class="bg-surface-container rounded-xl p-6 border border-outline-variant">
+          <h3 class="text-headline-md mb-6">The Breakdown</h3>
+          <div class="space-y-6">
+            <div>
+              <h4 class="text-label-caps text-on-secondary-fixed-variant mb-3 flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">add_circle</span> The Good
+              </h4>
+              <ul class="text-body-md space-y-2 text-on-surface">
+                <li class="flex items-start gap-2">• Peerless atmospheric lighting</li>
+                <li class="flex items-start gap-2">• Intuitive, deep drift mechanics</li>
+                <li class="flex items-start gap-2">• Generous post-launch content plan</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-label-caps text-error mb-3 flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">remove_circle</span> The Bad
+              </h4>
+              <ul class="text-body-md space-y-2 text-on-surface">
+                <li class="flex items-start gap-2">• Steep learning curve for casuals</li>
+                <li class="flex items-start gap-2">• UI can be cluttered in race</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="relative rounded-xl bg-primary text-on-primary p-6 overflow-hidden">
+          <h3 class="relative z-10 text-headline-md mb-4 text-white">Community Heat</h3>
+          <p class="relative z-10 text-white/70 mb-4">Players are currently rating this 8.9/10 based on 4.2k submissions.</p>
+          <button class="relative z-10 w-full bg-white text-primary font-bold py-3 rounded-lg hover:bg-primary-fixed transition-colors">Submit Your Score</button>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Grid: Expert & Community Ratings -->
+    <section class="mb-section-gap">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-headline-md">Global Consensus</h2>
+        <div class="flex gap-2">
+          <button class="px-4 py-2 bg-surface-container rounded-lg text-sm font-medium border border-outline-variant">All</button>
+          <button class="px-4 py-2 text-sm font-medium">Experts</button>
+          <button class="px-4 py-2 text-sm font-medium">Community</button>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Review Card 1 -->
+        <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center gap-3">
+              <div class="size-10 bg-secondary rounded-full flex items-center justify-center text-on-secondary font-bold">V</div>
+              <div>
+                <h4 class="font-bold text-on-surface">Vanguard Games</h4>
+                <p class="text-xs text-on-surface-variant">Expert Critic</p>
+              </div>
+            </div>
+            <span class="bg-primary text-white text-sm font-black px-2 py-1 rounded">9/10</span>
+          </div>
+          <p class="text-body-md text-on-surface-variant mb-4">"A masterclass in level design and rhythmic interaction. We couldn't put it down."</p>
+          <div class="flex items-center gap-2 text-xs text-on-surface-variant">
+            <span class="material-symbols-outlined text-[14px]">thumb_up</span> 142 Likes
+            <span class="mx-1">•</span>
+            <span class="material-symbols-outlined text-[14px]">chat_bubble</span> 24
+          </div>
+        </div>
+        
+        <!-- Review Card 2 -->
+        <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center gap-3">
+              <div class="size-10 bg-tertiary-container rounded-full flex items-center justify-center text-white font-bold">PC</div>
+              <div>
+                <h4 class="font-bold text-on-surface">PC Realm</h4>
+                <p class="text-xs text-on-surface-variant">Expert Critic</p>
+              </div>
+            </div>
+            <span class="bg-primary text-white text-sm font-black px-2 py-1 rounded">10/10</span>
+          </div>
+          <p class="text-body-md text-on-surface-variant mb-4">"Absolute perfection on high-end hardware. The ray-tracing implementation is the best we've seen."</p>
+          <div class="flex items-center gap-2 text-xs text-on-surface-variant">
+            <span class="material-symbols-outlined text-[14px]">thumb_up</span> 89 Likes
+            <span class="mx-1">•</span>
+            <span class="material-symbols-outlined text-[14px]">chat_bubble</span> 12
+          </div>
+        </div>
+        
+        <!-- Review Card 3 (Community) -->
+        <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-l-4 border-l-secondary">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center gap-3">
+              <div class="size-10 rounded-full overflow-hidden">
+                <img class="w-full h-full object-cover" data-alt="Gamer picture circular avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsN_EfLJp6l521eRdpyCYbIjhBzHW_2cvN389UfQ4AQzjXcRWZa1Nv6-tgrsMhn6zbJ5tiaSDbdjk7FyhIkv43wbHZ1J1rTvF8LDLpCHkSZQPgZgVSob4FWP-tUnsHxDGC7lWFSvuhhsopTrDAklL1Mta1u1252q39XyDeUwJ6ENDRXNR5x_m8QoFysUtB4ZM9RFFwIg_7zn1jIphUMzCq_dLpTIzJRY_hSGwNPsVwPSVNCSxM1NT4HFqJxutFIRQeO7_P8-EObXA"/>
+              </div>
+              <div>
+                <h4 class="font-bold text-on-surface">Snyper_X</h4>
+                <p class="text-xs text-on-surface-variant">Verified Player</p>
+              </div>
+            </div>
+            <span class="text-secondary text-sm font-black px-2 py-1 bg-secondary-fixed rounded">4.5/5</span>
+          </div>
+          <p class="text-body-md text-on-surface-variant mb-4">"Controls feel amazing on a controller. Only wish there were more tracks at launch, but what's here is fire."</p>
+          <div class="flex items-center gap-2 text-xs text-on-surface-variant">
+            <span class="material-symbols-outlined text-[14px]">thumb_up</span> 1.2k Likes
+            <span class="mx-1">•</span>
+            <span class="material-symbols-outlined text-[14px]">chat_bubble</span> 450
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Review Section -->
+    <section class="mb-section-gap">
+      <h2 class="text-headline-md mb-8">Video Deep Dive</h2>
+      <div class="relative w-full aspect-video rounded-2xl overflow-hidden group cursor-pointer">
+        <img class="w-full h-full object-cover" data-alt="Gaming setup room backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzeq6Dnvy9jlBBFmY-0Zql9_3i7jgLzKixq0f2TJ8JgNTBIP2hHmEyRr908isL6vHZ3KoOUYE9DdhheLobayi9gzvXOxMywgwrg2N0gA73UgZjRY3ONJ0GaEZwTetMJ5SPD1VYbFAnr2A7FE3WU2Nig4WLYQY48fkgLQKAsDLxCqKPzLSQaC8cz-nSXJkql-ypqudBOWDbMTPBV2JCOLqRKtXSfp4quUStK3lHmoQg1mZD-APbjcbFV9_jHd-71iEsXiwB5ZvNBMI"/>
+        <div class="absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity group-hover:bg-black/20">
+          <div class="size-20 bg-white rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+          </div>
+        </div>
+        <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+          <div>
+            <p class="text-white text-xl font-bold">15 Minutes of Unedited Gameplay</p>
+            <p class="text-white/70">Ultra Settings | 4K 60FPS</p>
+          </div>
+          <span class="text-white bg-black/60 px-3 py-1 rounded text-sm font-mono">14:52</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rating Distribution -->
+    <section class="bg-surface-container rounded-2xl p-8 lg:p-12 border border-outline-variant">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-headline-md mb-6">Community Consensus</h2>
+          <p class="text-on-surface-variant text-body-lg mb-8">Out of 1,240 verified reviews, players find the "Visuals" and "Atmosphere" to be the game's strongest points.</p>
+          <div class="space-y-4">
+            <div class="grid grid-cols-[100px_1fr_40px] items-center gap-4">
+              <span class="text-sm font-bold uppercase tracking-wider">Gameplay</span>
+              <div class="h-2 bg-outline-variant rounded-full overflow-hidden">
+                <div class="h-full bg-primary" style="width: 92%"></div>
+              </div>
+              <span class="text-sm text-right">9.2</span>
+            </div>
+            <div class="grid grid-cols-[100px_1fr_40px] items-center gap-4">
+              <span class="text-sm font-bold uppercase tracking-wider">Visuals</span>
+              <div class="h-2 bg-outline-variant rounded-full overflow-hidden">
+                <div class="h-full bg-primary" style="width: 98%"></div>
+              </div>
+              <span class="text-sm text-right">9.8</span>
+            </div>
+            <div class="grid grid-cols-[100px_1fr_40px] items-center gap-4">
+              <span class="text-sm font-bold uppercase tracking-wider">Sound</span>
+              <div class="h-2 bg-outline-variant rounded-full overflow-hidden">
+                <div class="h-full bg-primary" style="width: 85%"></div>
+              </div>
+              <span class="text-sm text-right">8.5</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center gap-4 mb-4">
+            <p class="text-6xl font-black text-primary leading-none">4.8</p>
+            <div>
+              <div class="flex gap-0.5 text-primary mb-1">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+              <p class="text-on-surface-variant text-sm uppercase font-bold tracking-widest">1,240 Reviews</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-[20px_1fr_40px] items-center gap-y-3">
+            <p class="text-[#141414] text-sm font-normal leading-normal">5</p>
+            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbdbdb]"><div class="rounded-full bg-black" style="width: 70%;"></div></div>
+            <p class="text-neutral-500 text-sm font-normal leading-normal text-right">70%</p>
+            <p class="text-[#141414] text-sm font-normal leading-normal">4</p>
+            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbdbdb]"><div class="rounded-full bg-black" style="width: 20%;"></div></div>
+            <p class="text-neutral-500 text-sm font-normal leading-normal text-right">20%</p>
+            <p class="text-[#141414] text-sm font-normal leading-normal">3</p>
+            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbdbdb]"><div class="rounded-full bg-black" style="width: 5%;"></div></div>
+            <p class="text-neutral-500 text-sm font-normal leading-normal text-right">5%</p>
+            <p class="text-[#141414] text-sm font-normal leading-normal">2</p>
+            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbdbdb]"><div class="rounded-full bg-black" style="width: 3%;"></div></div>
+            <p class="text-neutral-500 text-sm font-normal leading-normal text-right">3%</p>
+            <p class="text-[#141414] text-sm font-normal leading-normal">1</p>
+            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbdbdb]"><div class="rounded-full bg-black" style="width: 2%;"></div></div>
+            <p class="text-neutral-500 text-sm font-normal leading-normal text-right">2%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expert Pull Quote -->
+    <section class="py-20 text-center max-w-4xl mx-auto">
+      <span class="material-symbols-outlined text-secondary text-5xl mb-6">format_quote</span>
+      <h2 class="text-headline-lg-mobile md:text-headline-lg leading-tight mb-8">
+        "Astral Drift is not just a game, it's a testament to the current golden age of indie-tech hybrid development."
+      </h2>
+      <p class="font-bold text-on-surface uppercase tracking-widest">— Digital Foundry Weekly</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest border-t border-surface-variant w-full py-16">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter w-full max-w-[1440px] mx-auto">
+      <div class="flex flex-col items-center md:items-start gap-4">
+        <span class="font-headline-md text-headline-md font-black text-primary">RONPLAYS</span>
+        <p class="font-label-caps text-label-caps text-on-surface-variant">© 2024 RONPLAYS PRECISION ENGINEERING. ALL RIGHTS RESERVED.</p>
+      </div>
+      <div class="flex gap-8">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">TERMS</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">WARRANTY</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">SUPPORT</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Floating Header Effect on Scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (header) {
+        if (window.scrollY > 20) {
+          header.classList.add('shadow-sm', 'py-2');
+          header.classList.remove('py-4');
+        } else {
+          header.classList.remove('shadow-sm', 'py-2');
+          header.classList.add('py-4');
+        }
+      }
+    });
+
+    // Mobile menu drawer toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const menuIcon = document.getElementById('mobile-menu-icon');
+    
+    if (menuBtn && drawer && menuIcon) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = !drawer.classList.contains('translate-x-full');
+        if (isOpen) {
+          drawer.classList.add('translate-x-full');
+          menuIcon.textContent = 'menu';
+        } else {
+          drawer.classList.remove('translate-x-full');
+          menuIcon.textContent = 'close';
+        }
+      });
+    }
+
+    // Micro-interaction to consensus cards
+    document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>
